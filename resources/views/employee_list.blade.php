@@ -12,6 +12,8 @@
   </head>
   <body>
     <div class="container mt-5">
+        <a href="{{ route('add_employee') }}" class="btn btn-primary mb-3">Add Employee</a>
+
         <table class="table table-bordered table-hover text-center">
             <thead>
                 <tr>
@@ -30,7 +32,7 @@
                     <td>{{ $employee->division }}</td>
                     <td>{{ $employee->position }}</td>
                     <td>
-                        <a href="#" class="btn btn-success">Edit</a>
+                        <a href="{{ route('employee_edit', $employee->id) }}" class="btn btn-success">Edit</a>
                         <a href="#" class="btn btn-success">Delete</a>
                     </td>
                 </tr>

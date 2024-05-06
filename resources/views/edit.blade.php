@@ -12,8 +12,6 @@
   </head>
   <body>
     <div class="container mt-5">
-        <a href="{{ route('employee_list') }}" class="btn btn-secondary mb-3">Employee List</a>
-
         @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
         @endforeach
@@ -23,45 +21,45 @@
                 {{ session('success') }}
             </div>
         @endif
-        <form action="{{ route('save') }}" method="POST">
+        <form action="{{ route('save_edit', $id) }}" method="POST">
             @csrf
-
             <div class="form-group">
                 <label for="firstname">Firstname</label>
-                <input type="text" class="form-control" id="firstname" placeholder="Enter firstname" name="firstname">
+                <input type="text" class="form-control" id="firstname" placeholder="Enter firstname" name="firstname" value="{{ $emp->firstname }}">
             </div>
 
             <div class="form-group">
                 <label for="middlename">Middlename</label>
-                <input type="text" class="form-control" id="middlename" placeholder="Enter middlename" name="middlename">
+                <input type="text" class="form-control" id="middlename" placeholder="Enter middlename" name="middlename" value="{{ $emp->middlename }}">
             </div>
 
             <div class="form-group">
                 <label for="lastname">Lastname</label>
-                <input type="text" class="form-control" id="lastname" placeholder="Enter lastname" name="lastname">
+                <input type="text" class="form-control" id="lastname" placeholder="Enter lastname" name="lastname" value="{{ $emp->lastname }}">
             </div>
 
             <div class="form-group">
                 <label for="suffix">Suffix</label>
-                <input type="text" class="form-control" id="suffix" placeholder="Enter suffix" name="suffix">
+                <input type="text" class="form-control" id="suffix" placeholder="Enter suffix" name="suffix" value="{{ $emp->suffix }}">
             </div>
         
             <div class="form-group">
                 <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" value="{{ $emp->email }}">
             </div>
 
             <div class="form-group">
                 <label for="division">Division</label>
-                <input type="text" class="form-control" id="division" placeholder="Enter division" name="division">
+                <input type="text" class="form-control" id="division" placeholder="Enter division" name="division" value="{{ $emp->division }}">
             </div>
 
             <div class="form-group">
                 <label for="position">Position</label>
-                <input type="text" class="form-control" id="position" placeholder="Enter position" name="position">
+                <input type="text" class="form-control" id="position" placeholder="Enter position" name="position" value="{{ $emp->position }}">
             </div>
             
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a href="{{ route('employee_list') }}" class="btn btn-warning">Back</a>
         </form>
     </div>
 
